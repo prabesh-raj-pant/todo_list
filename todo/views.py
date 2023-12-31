@@ -27,8 +27,12 @@ def create_task(request):
     return render(request,'create.html')
 
 def mark_completed(request,pk):
-    task=Task.objects.get(pk=pk)
-    task.is_completed=True
-    task.save()
-    return redirect('/')
+    try:
+        task=Task.objects.get(pk=pk)
+        task.is_completed=True
+        task.save()
+        return redirect('/')
+    except Task.DoesNotExist:
+        return HttpResponse("no such task exists")
+   
     
