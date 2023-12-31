@@ -4,5 +4,6 @@ from .views import *
 
 urlpatterns = [
     path('',index),
-    path('create-task',create_task)
+    path('create-task',create_task),
+    path('task/<pk>',mark_completed),
 ]
