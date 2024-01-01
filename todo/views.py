@@ -35,4 +35,10 @@ def mark_completed(request,pk):
     except Task.DoesNotExist:
         return HttpResponse("no such task exists")
    
-    
+def delete_task(request,pk):
+    try:
+        todo=Task.objects.get(pk=pk)
+        todo.delete()
+        return redirect('/')
+    except Task.DoesNotExist:
+        return HttpResponse("no such task exists")
