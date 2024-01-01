@@ -7,4 +7,5 @@ urlpatterns = [
     path('create-task',create_task),
     path('task/<pk>',mark_completed),
     path('task/<pk>/delete',delete_task),
+    path('task/<pk>/edit',edit_task),
 ]
